@@ -14,15 +14,11 @@
 
   boot.initrd.systemd = {
     enable = true;
+    emergencyAccess = true; # TODO: remove in production
     network.enable = true;
     network.networks."10-lan".matchConfig.Name = "enp1s0";
     network.networks."10-lan".networkConfig.DHCP = "yes";
   };
 
-  boot.initrd.clevis = {
-    enable = true;
-    useTang = true;
-    devices."crypted".bound = true;
-    devices."crypted".secretFile = ./null.key;
-  };
+  boot.initrd.services.resolved.enable = true;
 }

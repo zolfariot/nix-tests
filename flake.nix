@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:zolfariot/nixpkgs?ref=zolfa-test";
-    disko.url = "github:nix-community/disko";
+    disko.url = "github:zolfariot/disko?ref=feature/clevisPin";
     disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 

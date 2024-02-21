@@ -1,10 +1,12 @@
 { config, lib, pkgs, ... }:
 {
+  # Boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Europe/Amsterdam";
 
+  # Network services
   systemd.network = {
     enable = true;
     networks."10-lan".matchConfig.Name = "enp1s0";
@@ -16,13 +18,20 @@
     allowedTCPPorts = [ 22 ];
     allowedUDPPorts = [ ];
   };
+  services.openssh.enable = true;
 
+  # Authentication
+  security.sudo.wheelNeedsPassword = false;
+  users.mutableUsers = false;
   users.users.zolfa = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL7sWoCdLb1E+KK8A4Ld6WSuDh+MtDgqytojsUYsvm5D zolfa@nix" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL7sWoCdLb1E+KK8A4Ld6WSuDh+MtDgqytojsUYsvm5D zolfa@nix"
+    ];
   };
 
+  # System packages
   programs.mtr.enable = true;
   environment.systemPackages = with pkgs; [
     vim
