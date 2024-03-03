@@ -1,11 +1,16 @@
 { ... }:
 {
   disko.devices.disk = {
-    sdcard = {
+    ssd = {
       type = "disk";
-      device = "/dev/vda";
+      device = "/dev/sda";
+      imageSize = "2G";
       content = {
         type = "gpt";
+        partitions.BOOT = {
+          size = "1M";
+          type = "EF02";
+        };
         partitions.ESP = {
           size = "512M";
           type = "EF00";
@@ -16,7 +21,7 @@
         partitions.ROOT = {
           size = "100%";
           content.type = "luks";
-          content.name = "crypted";
+          content.name = "crypted-root";
           content.clevisPin = "tang";
           content.clevisPinConfig = ''{"url": "http://tang.zolfa.nl"}'';
           content.content.type = "btrfs";
@@ -29,6 +34,24 @@
           content.content.subvolumes."/home".mountOptions = [ "noatime" ];
         };
       };
+    };
+    hdd = {
+      type = "disk";
+      device = "/dev/sdb";
+      content = {
+        type = "gpt";
+        partitions.DATA = {
+          size = "100%";
+          content.type = "luks";
+          content.name = "crypted-data";
+          content.clevisPin = "tang";
+          content.clevisPinConfig = ''{"url": "http://tang.zolfa.nl"}'';
+          content.content.type = "btrfs";
+          content.content.extraArgs = [ "-f" ];
+          content.content.mountpoint = "/data";
+          content.content.mountOptions = [ "noatime" ];
+        };
+      };  
     };
   };
 }

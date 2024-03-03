@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1708937736,
-        "narHash": "sha256-enqsAui8sW/vMvGNn7Ed1RZpbcq+i5kDabBjKPSsr18=",
+        "lastModified": 1709590682,
+        "narHash": "sha256-iL++LToZbn3q0JcGVApiLNYv0azCKRojxwQbXztpXYs=",
         "owner": "zolfariot",
         "repo": "disko",
-        "rev": "555d4495637d5e2d6923849b84b6316a7973135e",
+        "rev": "df208033390b1161d88b8feb0966636c69c2a932",
         "type": "github"
       },
       "original": {
@@ -23,16 +23,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1708942651,
-        "narHash": "sha256-Ug2SnNYZSoGV265xru8Lygz3kIo/IqkYgZjMmCBl9bo=",
+        "lastModified": 1709834710,
+        "narHash": "sha256-NJIKmCkwyx0LSUFJsemFRoxNyvLST6alskmFNji8PWw=",
         "owner": "zolfariot",
         "repo": "nixpkgs",
-        "rev": "4ed098e7d438defc8e8af2c8c0fd12c3356c89e4",
+        "rev": "f4a823bf3c0b1a1d70bc77463f5cab11a6e2bea2",
         "type": "github"
       },
       "original": {
         "owner": "zolfariot",
-        "ref": "zolfa-test",
+        "ref": "znet",
         "repo": "nixpkgs",
         "type": "github"
       }

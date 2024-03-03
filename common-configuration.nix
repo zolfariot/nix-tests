@@ -1,28 +1,29 @@
 { config, lib, pkgs, ... }:
 {
-  # Boot loader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  time.timeZone = "UTC";
 
-  time.timeZone = "Europe/Amsterdam";
-
-  # Network services
-  systemd.network = {
+  boot.initrd.systemd = {
     enable = true;
-    networks."10-lan".matchConfig.Name = "enp1s0";
-    networks."10-lan".networkConfig.DHCP = "yes";
+    emergencyAccess = true; # TODO: remove in production
+    network.enable = true;
+    network.networks."10-lan" = config.systemd.network.networks."10-lan";
   };
+  boot.initrd.services.resolved.enable = true;
+
+  systemd.network.enable = true;
   networking.useNetworkd = true;
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 22 ];
     allowedUDPPorts = [ ];
   };
+  services.resolved.enable = true;
   services.openssh.enable = true;
 
   # Authentication
   security.sudo.wheelNeedsPassword = false;
   users.mutableUsers = false;
+  users.defaultUserShell = pkgs.zsh;
   users.users.zolfa = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -33,11 +34,23 @@
 
   # System packages
   programs.mtr.enable = true;
+  programs.zsh = {
+    histSize = 1000000000;
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    ohMyZsh.enable = true;
+    ohMyZsh.theme = "robbyrussell";
+    ohMyZsh.plugins = ["sudo"];
+  };
   environment.systemPackages = with pkgs; [
     vim
     wget
     curl
     clevis
+    tmux
+    byobu
   ];
   
   system.stateVersion = "24.05";
