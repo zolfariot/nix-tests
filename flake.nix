@@ -31,17 +31,7 @@
         disko.nixosModules.disko
         ./prager-vps
         ./common-configuration.nix
-        {
-          networking.hostName = "znet-de-nue1";
-          systemd.network.networks."10-lan" = {
-            matchConfig.Name = "ens18";
-            networkConfig.Gateway = "212.46.59.1";
-            networkConfig.DNS = [ "212.46.59.1" "1.1.1.1" ];
-            addresses = [
-              { addressConfig.Address = "212.46.59.59/32"; addressConfig.Peer = "212.46.59.1/32"; }
-            ];
-          };
-        }
+        ./networking/znet-de-nue1.nix
       ];
     };
   };
