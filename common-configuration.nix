@@ -12,6 +12,7 @@
 
   systemd.network.enable = true;
   networking.useNetworkd = true;
+  networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 22 ];
@@ -51,6 +52,7 @@
     clevis
     tmux
     byobu
+    git
   ];
   
   system.stateVersion = "24.05";
