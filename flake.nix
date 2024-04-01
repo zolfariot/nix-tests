@@ -31,7 +31,8 @@
         disko.nixosModules.disko
         ./prager-vps
         ./common-configuration.nix
-        ./networking/znet-de-nue1.nix
+        { networking.hostName = "znet-de-nue1"; }
+        ./utils/networking.nix
       ];
     };
   };

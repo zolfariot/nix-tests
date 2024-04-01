@@ -1,0 +1,45 @@
+[hosts.znet-fr-par1]
+ifname_ext = "eth0"
+network = "znet"
+ipv4 = { addr = "185.10.17.55/32", gateway = "185.10.17.254" }
+ipv6 = { addr = "2a07:8dc0:19:12f::1/128", gateway = "fe80::1"}
+dns = [ "185.10.16.252", "185.154.155.252", "185.10.17.251", "2a07:8dc0:19::251", "2a07:8dc1:20::252" ]
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ9Bkr4aWdLCk7jifA2jkem0pNlgnCuUpW2Q6o/M7Gd7"
+wg_pubkey = "6nomFb2YigoDJgDcshAYZ9sClKjgooPjE7nmXOv6lzw="
+wg_linklocal = "fe80::2:1/64"
+wg_remoteport = 14142
+znet_loopback = "2a0e:8f02:2142:f::1/128"
+
+[hosts.znet-de-nue1]
+ifname_ext = "ens18"
+network = "znet"
+ipv4 = { addr = "212.46.59.59/32", gateway = "212.46.59.1" }
+dns = [ "212.46.59.1", "1.1.1.1" ]
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7QTrUKg6UXmFdRCjLukezv6D97kzVNpFHwTjwomBmd"
+wg_pubkey = "mG7OIIdsQ3T4JIJVjk/s28Vqw+GaP9QiXN60LRpiQiU="
+wg_linklocal = "fe80::4:1/64"
+wg_remoteport = 14144
+znet_loopback = "2a0e:8f02:2144:f::1/128"
+
+[hosts.lilik-it-flr1a]
+ifname_ext = "eth0"
+network = "lilik"
+ipv4 = { addr = "10.150.46.140/24", gateway = "10.150.46.1", ext = "150.217.18.45" }
+ipv6 = { addr = "2001:760:2c05:18:c9ea:de73:a2fc:140/112" }
+dns = [ "150.217.1.32", "8.8.8.8", "1.1.1.1" ]
+wg_pubkey = "kSFbEkjlSFOnVEKUt2ufcR+KDzWFRc98neg30if/gBc="
+wg_linklocal = "fe80::0:1/64"
+wg_remoteport = 14150
+wg_altlocalport = 1
+znet_loopback = "2a0e:8f02:2140:f::2/128"
+
+[hosts.lilik-it-flr1b]
+ifname_ext = "eth0"
+network = "lilik"
+ipv4 = { addr = "10.150.42.77/24", gateway = "10.150.42.1", ext = "150.217.18.45" }
+ipv6 = { addr = "2001:760:2c05:18:c9ea:de73:a2fb:9451/112" }
+dns = [ "10.150.42.1", "8.8.8.8", "2620:fe::9" ]
+wg_pubkey = "ukAjkPVuaVKbzVm+zTUAI6zqY4+dbsVvLONOqHRRJQU="
+wg_linklocal = "fe80::0:2/64"
+wg_remoteport = 14140
+znet_loopback = "2a0e:8f02:2140:f::1/128"
