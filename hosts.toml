@@ -11,6 +11,8 @@ wg_remoteport = 14142
 znet_loopback = "2a0e:8f02:2142:f::1/128"
 
 [hosts.znet-de-nue1]
+aarch = "x86_64-linux"
+hardware = "prager-vps"
 ifname_ext = "ens18"
 network = "znet"
 ipv4 = { addr = "212.46.59.59/32", gateway = "212.46.59.1" }

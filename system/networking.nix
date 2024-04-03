@@ -31,23 +31,17 @@
   in 
   {
     boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
-
+    
     networking.firewall.allowedTCPPorts = [
       22  # ssh
     ];
-    networking.firewall.allowedUDPPorts = [
-      14142  # wireguard znet-fr-par1 ipv4
-      14150  # wireguard lilik-it-flr1a ipv4
-      14140  # wireguard lilik-it-flr1b ipv4
-    ];
 
-    networking.firewall.interfaces."znet-*".allowedUDPPorts = [
-      6696  # babel
-    ];
-    networking.firewall.interfaces."lilik-*".allowedUDPPorts = [
-      6696  # babel
-    ];
+    networking.firewall.allowedUDPPorts = []
+      ++ map (name: (mkWgConfV4 name).listenPort) peerHostnames;
 
+    networking.firewall.interfaces = builtins.listToAttrs (
+      map (name: { name = name; value = { allowedUDPPorts = [ 6696 ]; }; }) peerHostnames
+    );
 
     systemd.network.networks."10-lan" = {
       matchConfig.Name = host.ifname_ext;
@@ -76,42 +70,21 @@
       networkConfig.LinkLocalAddressing = false;
     };
 
-    services.frr.babel = {
-      enable = true;
-      config = ''
-        router babel
-          network znet-fr-par1
-          network lilik-it-flr1a
-          network lilik-it-flr1b
-          redistribute ipv6 connected
-
-        interface znet-fr-par1
-          babel wired
-          babel enable-timestamps
-
-        interface lilik-it-flr1a
-          babel wired
-          babel enable-timestamps
-
-        interface lilik-it-flr1b
-          babel wired
-          babel enable-timestamps
-      '';
-    };
-
-    services.frr.zebra = {
-      config = ''
-        ipv6 prefix-list znet-128 permit 2a0e:8f02:2140::/44 ge 128
-      
-        route-map babel-kernel-export permit 10
-          match ipv6 address prefix-list znet-128
-          set src 2a0e:8f02:2144:f::1
-
-        ip protocol babel route-map babel-kernel-export
-      '';
-    };
-
     networking.wireguard.interfaces = builtins.listToAttrs (
       map (name: { name = name; value = mkWgConfV4 name; }) peerHostnames
     );
+
+    services.frr.babel = {
+      enable = true;
+      config = lib.strings.concatLines [
+        "router babel"
+        (lib.strings.concatLines (map (hostName: "  network ${hostName}") peerHostnames))
+        "  redistribute ipv6 connected"
+        (lib.strings.concatLines (map (hostName: ''
+          interface ${hostName}
+            babel wired
+            babel enable-timestamps
+        '') peerHostnames))
+      ];
+    };
   } 

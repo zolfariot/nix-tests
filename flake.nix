@@ -7,33 +7,27 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, disko }: {
-    # Raspberry Pi 4
-    nixosConfigurations.znet-fr-par2 = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        disko.nixosModules.disko
-        ./raspi-fde
-        ./common-configuration.nix
-        {
-          networking.hostName = "znet-fr-par2";
-          systemd.network.networks."10-lan" = {
-            matchConfig.Name = "enp1s0";
-            networkConfig.DHCP = "yes";
-          };
-        }
-      ];
-    };
-    # VPS || Nurnberg (Germany) || Prager-IT
-    nixosConfigurations.znet-de-nue1 = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        disko.nixosModules.disko
-        ./prager-vps
-        ./common-configuration.nix
-        { networking.hostName = "znet-de-nue1"; }
-        ./utils/networking.nix
-      ];
-    };
+  outputs = { self, nixpkgs, disko }:
+  let
+    metadata = builtins.fromTOML (builtins.readFile ./hosts.toml);
+    hosts = metadata.hosts;
+    mkNixosConf = hostName:
+      let
+        host = hosts."${hostName}";
+      in nixpkgs.lib.nixosSystem {
+        system = host.aarch;
+        modules = [
+          { networking.hostName = hostName; }
+          disko.nixosModules.disko
+          (./disk-config + "/${hostName}.nix")
+          (./hardware + "/${host.hardware}.nix")
+          ./system/networking.nix
+          ./system/common.nix
+        ];
+      };
+  in {
+    nixosConfigurations = builtins.listToAttrs (
+      map (name: { name = name; value = mkNixosConf name; }) [ "znet-de-nue1" ]
+    );
   };
 }
