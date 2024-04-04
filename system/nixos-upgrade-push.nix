@@ -1,7 +1,7 @@
   { config, lib, pkgs, ... }: {
   # Auto GitOps upgrade
   systemd.services.nixos-upgrade-push = {
-    description = "NixOS Upgrade on Git Push";
+    description = "Trigger NixOS rebuild at every push on the Flake Repo.";
     restartIfChanged = true;
     unitConfig.X-StopOnRemoval = false;
     serviceConfig.Type = "simple";
