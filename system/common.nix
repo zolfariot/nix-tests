@@ -24,6 +24,7 @@
   };
   services.resolved.enable = true;
   services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
 
   # Authentication
   security.sudo.wheelNeedsPassword = false;
