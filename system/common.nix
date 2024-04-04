@@ -52,6 +52,7 @@
       gitMinimal
       config.nix.package.out
       config.programs.ssh.package
+      bashInteractive
       ntfy-sh
     ];
     
