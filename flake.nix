@@ -23,7 +23,9 @@
           (./hardware + "/${host.hardware}.nix")
           ./system/networking.nix
           ./system/common.nix
-        ];
+        ] ++ nixpkgs.lib.lists.optional
+          (builtins.pathExists (./service-config + "/${hostName}.nix"))
+          (./service-config + "/${hostName}.nix");
       };
   in {
     nixosConfigurations = builtins.listToAttrs (
