@@ -35,7 +35,7 @@
 
   # Auto GitOps upgrade
   systemd.services.nixos-upgrade-push = {
-    description = "NixOS Upgrade on Push";
+    description = "NixOS Upgrade on Git Push";
     restartIfChanged = false;
     unitConfig.X-StopOnRemoval = false;
     serviceConfig.Type = "simple";
