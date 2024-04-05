@@ -12,7 +12,8 @@
   services.k3s.enable = true;
   services.k3s.role = "server";
   services.k3s.extraFlags = toString [
-    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+    # "--kubelet-arg=v=4" # Optionally addp additional args to k3s
+    "--kubelet-arg=feature-gates=NodeSwap=true"
   ];
   environment.systemPackages = [
     pkgs.k3s
