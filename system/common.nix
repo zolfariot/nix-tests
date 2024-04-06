@@ -58,6 +58,7 @@
     tmux
     byobu
     git
+    htop
   ];
   
   system.stateVersion = "24.05";
