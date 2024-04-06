@@ -13,10 +13,11 @@
   services.k3s.role = "server";
   services.k3s.extraFlags = toString [
     # "--kubelet-arg=v=4" # Optionally addp additional args to k3s
-    "--kubelet-arg=feature-gates=NodeSwap=true"
+    "--kubelet-arg=feature-gates=NodeSwap=true" # Enable use of swap memory
   ];
   environment.systemPackages = [
     pkgs.k3s
     pkgs.fluxcd
+    pkgs.k9s
   ];
 }
