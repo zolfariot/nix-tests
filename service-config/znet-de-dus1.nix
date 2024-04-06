@@ -1,5 +1,5 @@
 { ... }: {
   imports = [
-    #../system/k3s.nix
+    ../system/k3s.nix
   ];
 }
