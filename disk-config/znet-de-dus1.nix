@@ -4,7 +4,7 @@
     ssd = {
       type = "disk";
       device = "/dev/sda";
-      imageSize = "6G";
+      imageSize = "4G";
       content = {
         type = "gpt";
         partitions.BOOT = {
