@@ -23,6 +23,20 @@ wg_linklocal = "fe80::4:1/64"
 wg_remoteport = 14144
 znet_loopback = "2a0e:8f02:2144:f::1/128"
 
+[hosts.znet-de-dus1]
+aarch = "x86_64-linux"
+hardware = "contabo-vps"
+ifname_ext = "eth0"
+network = "znet"
+ipv4 = { addr = "194.163.158.84/32", gateway = "194.163.158.1" }
+ipv6 = { addr = "2a02:c206:2178:8776::1/128", gateway = "fe80::1" }
+dns = [ "161.97.189.52", "161.97.189.51", "2a02:c206:5028::2:53", "2s02:c206:5028::1:53" ]
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7QTrUKg6UXmFdRCjLukezv6D97kzVNpFHwTjwomBmd"
+wg_pubkey = "kSFbEkjlSFOnVEKUt2ufcR+KDzWFRc98neg30if/gBc="
+wg_linklocal = "fe80::5:1/64"
+wg_remoteport = 14145
+znet_loopback = "2a0e:8f02:2145:f::1/128"
+
 [hosts.lilik-it-flr1a]
 ifname_ext = "eth0"
 network = "lilik"
