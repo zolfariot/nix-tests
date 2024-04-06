@@ -31,8 +31,8 @@ network = "znet"
 ipv4 = { addr = "194.163.158.84/32", gateway = "194.163.128.1" }
 ipv6 = { addr = "2a02:c206:2178:8776::1/128", gateway = "fe80::1" }
 dns = [ "161.97.189.52", "161.97.189.51", "2a02:c206:5028::2:53", "2s02:c206:5028::1:53" ]
-ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7QTrUKg6UXmFdRCjLukezv6D97kzVNpFHwTjwomBmd"
-wg_pubkey = "kSFbEkjlSFOnVEKUt2ufcR+KDzWFRc98neg30if/gBc="
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx1T3+kw11sOFDmqWOf1jiDnIv5NGQGbJtH/jsoiCHB"
+wg_pubkey = "Q/R/nCvikTz5yFzuOfZXYvWjhBaHaOufGW+R8V2Ny0U="
 wg_linklocal = "fe80::5:1/64"
 wg_remoteport = 14145
 znet_loopback = "2a0e:8f02:2145:f::1/128"
