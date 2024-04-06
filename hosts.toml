@@ -26,7 +26,7 @@ znet_loopback = "2a0e:8f02:2144:f::1/128"
 [hosts.znet-de-dus1]
 aarch = "x86_64-linux"
 hardware = "contabo-vps"
-ifname_ext = "eth0"
+ifname_ext = "ens18"
 network = "znet"
 ipv4 = { addr = "194.163.158.84/32", gateway = "194.163.128.1" }
 ipv6 = { addr = "2a02:c206:2178:8776::1/128", gateway = "fe80::1" }
