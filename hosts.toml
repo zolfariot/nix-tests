@@ -28,7 +28,7 @@ aarch = "x86_64-linux"
 hardware = "contabo-vps"
 ifname_ext = "eth0"
 network = "znet"
-ipv4 = { addr = "194.163.158.84/32", gateway = "194.163.158.1" }
+ipv4 = { addr = "194.163.158.84/32", gateway = "194.163.128.1" }
 ipv6 = { addr = "2a02:c206:2178:8776::1/128", gateway = "fe80::1" }
 dns = [ "161.97.189.52", "161.97.189.51", "2a02:c206:5028::2:53", "2s02:c206:5028::1:53" ]
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA7QTrUKg6UXmFdRCjLukezv6D97kzVNpFHwTjwomBmd"
