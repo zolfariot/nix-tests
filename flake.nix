@@ -29,7 +29,11 @@
       };
   in {
     nixosConfigurations = builtins.listToAttrs (
-      map (name: { name = name; value = mkNixosConf name; }) [ "znet-de-nue1" "znet-de-dus1" ]
+      map (name: { name = name; value = mkNixosConf name; }) [
+        "znet-de-nue1"
+        "znet-de-dus1"
+        "znet-it-mil1"
+      ]
     );
   };
 }
