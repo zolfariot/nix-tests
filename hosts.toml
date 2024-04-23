@@ -37,6 +37,18 @@ wg_linklocal = "fe80::5:1/64"
 wg_remoteport = 14145
 znet_loopback = "2a0e:8f02:2145:f::1/128"
 
+[hosts.znet-it-mil1]
+aarch = "x86_64-linux"
+hardware = "oracle-vps-x86"
+ifname_ext = "ens3"
+network = "znet"
+ipv4 = { addr = "10.0.0.111/32", gateway = "10.0.0.1", ext = "129.152.16.10" }
+dns = [ "169.254.169.254" ]
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx1T3+kw11sOFDmqWOf1jiDnIv5NGQGbJtH/jsoiCHB"
+wg_pubkey = "Q/R/nCvikTz5yFzuOfZXYvWjhBaHaOufGW+R8V2Ny0U="
+wg_remoteport = 14146
+znet_loopback = "2a0e:8f02:2146:f::1/128"
+
 [hosts.lilik-it-flr1a]
 ifname_ext = "eth0"
 network = "lilik"
