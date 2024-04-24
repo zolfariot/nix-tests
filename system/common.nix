@@ -62,7 +62,7 @@
     parted
     gptfdisk
   ];
-  environment.etc."profile.local".text = ''
+  environment.etc."zprofile.local".text = ''
     # Autostart byobu multiplexer for all users
     ${pkgs.byobu}/bin/byobu
   '';
