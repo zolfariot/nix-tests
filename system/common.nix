@@ -62,6 +62,10 @@
     parted
     gptfdisk
   ];
+  environment.etc."profile.local".text = ''
+    # Autostart byobu multiplexer for all users
+    ${pkgs.byobu}/bin/byobu
+  '';
   
   system.stateVersion = "24.05";
 }
