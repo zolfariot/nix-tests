@@ -42,10 +42,10 @@ aarch = "x86_64-linux"
 hardware = "oracle-vps-x86"
 ifname_ext = "ens3"
 network = "znet"
-ipv4 = { addr = "10.0.0.111/32", gateway = "10.0.0.1", ext = "129.152.16.10" }
+ipv4 = { addr = "10.0.0.91/32", gateway = "10.0.0.1", ext = "129.152.6.89" }
 dns = [ "169.254.169.254" ]
-ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx1T3+kw11sOFDmqWOf1jiDnIv5NGQGbJtH/jsoiCHB"
-wg_pubkey = "Q/R/nCvikTz5yFzuOfZXYvWjhBaHaOufGW+R8V2Ny0U="
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhE7c86FAv5Jo3xybZkGve9uzPjz8xcd+Da/qm6L5Y9"
+wg_pubkey = "An1qvZclZo4wsI7jXko0rlPi9SD/0ECrVhCFA1voIwA="
 wg_linklocal = "fe80::6:1/64"
 wg_remoteport = 14146
 znet_loopback = "2a0e:8f02:2146:f::1/128"
