@@ -59,6 +59,8 @@
     byobu
     git
     htop
+    parted
+    gptfdisk
   ];
   
   system.stateVersion = "24.05";
