@@ -64,7 +64,7 @@
   ];
   environment.etc."zprofile.local".text = ''
     # Autostart byobu multiplexer for all users
-    . ${pkgs.byobu}/bin/byobu-launch
+    _byobu_sourced=1 . ${pkgs.byobu}/bin/byobu-launch 2>/dev/null || true
   '';
   
   system.stateVersion = "24.05";
