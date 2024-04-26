@@ -4,7 +4,7 @@
   ];
 
   sops.secrets.k3s-token = {
-    sopsFile = ./secrets/k3s-eu-south-1.yaml;
+    sopsFile = ../secrets/k3s-eu-south-1.yaml;
   };
 
   services.k3s = {
