@@ -4,11 +4,11 @@
   ];
 
   sops.secrets.k3s-token = {
-    sopsFile = ./secrets/k3s-eu-south-1.yaml
-  }
+    sopsFile = ./secrets/k3s-eu-south-1.yaml;
+  };
 
   services.k3s = {
     clusterInit = true;
-    tokenFile = "/run/secrets/k3s-token"
-  }
+    tokenFile = "/run/secrets/k3s-token";
+  };
 }
