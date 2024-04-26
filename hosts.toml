@@ -44,11 +44,24 @@ ifname_ext = "enp0s6"
 network = "znet"
 ipv4 = { addr = "10.0.0.112/32", gateway = "10.0.0.1", ext = "89.168.26.250" }
 dns = [ "169.254.169.254" ]
-ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhE7c86FAv5Jo3xybZkGve9uzPjz8xcd+Da/qm6L5Y9"
-wg_pubkey = "An1qvZclZo4wsI7jXko0rlPi9SD/0ECrVhCFA1voIwA="
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIuMZ6n+4np+AV6EC8HaJCKo1ru/3F2T1ushw9CVyexp"
+wg_pubkey = "uHC6DxWxPIG7J6865SKhOObl6fJcFU1Slfd2YUT+fF4="
 wg_linklocal = "fe80::6:1/64"
 wg_remoteport = 14146
 znet_loopback = "2a0e:8f02:2146:f::1/128"
+
+[hosts.znet-it-mil2]
+aarch = "aarch64-linux"
+hardware = "oracle-vps-arm"
+ifname_ext = "enp0s6"
+network = "znet"
+ipv4 = { addr = "10.0.0.247/32", gateway = "10.0.0.1", ext = "129.152.1.131" }
+dns = [ "169.254.169.254" ]
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIuMZ6n+4np+AV6EC8HaJCKo1ru/3F2T1ushw9CVyexp"
+wg_pubkey = "uHC6DxWxPIG7J6865SKhOObl6fJcFU1Slfd2YUT+fF4="
+wg_linklocal = "fe80::7:1/64"
+wg_remoteport = 14147
+znet_loopback = "2a0e:8f02:2146:f::2/128"
 
 [hosts.lilik-it-flr1a]
 ifname_ext = "eth0"
