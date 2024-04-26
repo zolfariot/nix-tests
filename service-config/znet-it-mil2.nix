@@ -15,6 +15,6 @@ in
 
   services.k3s = {
     tokenFile = "/run/secrets/k3s-token";
-    serverAdds = "https://${clusterFatherIP}:6443";
+    serverAddr = "https://${clusterFatherIP}:6443";
   };
 }
