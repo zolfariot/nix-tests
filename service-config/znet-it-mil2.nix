@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 let
   metadata = pkgs.callPackage ../utils/metadata.nix {};
   clusterFather = metadata.hosts."znet-it-mil1".ipv4.addr;
