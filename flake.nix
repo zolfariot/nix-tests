@@ -37,6 +37,7 @@
         "znet-de-dus1"
         "znet-it-mil1"
         "znet-it-mil2"
+        "znet-it-mil3"
       ]
     );
   };
