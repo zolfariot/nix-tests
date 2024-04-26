@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    <sops-nix/modules/sops>
     ./nixos-upgrade-push.nix
   ];
 
@@ -68,4 +69,6 @@
   '';
   
   system.stateVersion = "24.05";
+
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 }

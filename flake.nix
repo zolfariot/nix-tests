@@ -5,9 +5,11 @@
     nixpkgs.url = "github:zolfariot/nixpkgs?ref=znet";
     disko.url = "github:zolfariot/disko?ref=feature/clevisPin";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, disko }:
+  outputs = { self, nixpkgs, disko, sops-nix }:
   let
     metadata = builtins.fromTOML (builtins.readFile ./hosts.toml);
     hosts = metadata.hosts;
@@ -23,6 +25,7 @@
           (./hardware + "/${host.hardware}.nix")
           ./system/networking.nix
           ./system/common.nix
+          sops-nix.nixosModules.sops
         ] ++ nixpkgs.lib.lists.optional
           (builtins.pathExists (./service-config + "/${hostName}.nix"))
           (./service-config + "/${hostName}.nix");
