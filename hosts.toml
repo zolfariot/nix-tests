@@ -38,11 +38,11 @@ wg_remoteport = 14145
 znet_loopback = "2a0e:8f02:2145:f::1/128"
 
 [hosts.znet-it-mil1]
-aarch = "x86_64-linux"
-hardware = "oracle-vps-x86"
-ifname_ext = "ens3"
+aarch = "aarch64-linux"
+hardware = "oracle-vps-arm"
+ifname_ext = "enp0s6"
 network = "znet"
-ipv4 = { addr = "10.0.0.91/32", gateway = "10.0.0.1", ext = "129.152.6.89" }
+ipv4 = { addr = "10.0.0.112/32", gateway = "10.0.0.1", ext = "89.168.26.250" }
 dns = [ "169.254.169.254" ]
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhE7c86FAv5Jo3xybZkGve9uzPjz8xcd+Da/qm6L5Y9"
 wg_pubkey = "An1qvZclZo4wsI7jXko0rlPi9SD/0ECrVhCFA1voIwA="
