@@ -70,8 +70,8 @@ ifname_ext = "enp0s6"
 network = "znet"
 ipv4 = { addr = "10.0.0.118/32", gateway = "10.0.0.1", ext = "158.180.233.129" }
 dns = [ "169.254.169.254" ]
-ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIk64uHd8gova+QyII2bZs0L/59S8bt3f+hy2oIEkWXd"
-wg_pubkey = "cfR0gLUDyXg4acY5C+Kec4BpAfHQaKIzGHInTD+f0VA="
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFehD6u7rFvo67EmI9QlYdt1ueUr7YCHux3iA3d0QcqH"
+wg_pubkey = "Cc20LpEC8BIUwt8jcvQXw7JOfxuKmQCp5CynuwHF7AI="
 wg_linklocal = "fe80::8:1/64"
 wg_remoteport = 14148
 znet_loopback = "2a0e:8f02:2146:f::3/128"
