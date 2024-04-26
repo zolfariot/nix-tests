@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
     ../system/k3s.nix
-    <sops-nix/modules/sops>
   ];
 
   sops.secrets.k3s-token = {
